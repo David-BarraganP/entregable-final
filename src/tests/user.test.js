@@ -30,7 +30,7 @@ beforeAll(async()=>{
 
 
 
-test("Get -> 'BASE_URL', should return status code 200, res.body to be defined and res.body.length = 1", async () => {
+test("Get -> 'BASE_URL/users', should return status code 200, res.body to be defined and res.body.length = 1", async () => {
     const res = await request(app)
 
         .get(BASE_URL)
@@ -71,7 +71,7 @@ test("Put -> 'BASE_URL/:id', should return status code 200, res.body to be defin
     expect(res.body.firstName).toBe("Daniela")
 })
 
-test("Post -> 'BASE_URL/login', should return status code 201, and res.body to be defined and res.body.email === user.email,  res.body.token to be denined", async () => {
+test("Post -> 'BASE_URL/login', should return status code 200, and res.body to be defined and res.body.email === user.email,  res.body.token to be denined", async () => {
 
     const userLogin = {
         email: 'alejandro@gmail.com',
@@ -108,7 +108,6 @@ test("POST -> 'URL_BASE/login', should return status code 401", async () => {
       .delete(`${BASE_URL}/${userId}`)
       .set('Authorization', `Bearer ${TOKEN}`)
       
-  
     expect(res.statusCode).toBe(204)
   })
 
