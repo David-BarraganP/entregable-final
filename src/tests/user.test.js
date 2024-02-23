@@ -30,7 +30,7 @@ beforeAll(async()=>{
 
 
 
-test("Get -> 'BASE_URL/users', should return status code 200, res.body to be defined and res.body.length = 1", async () => {
+test("Get -> 'BASE_URL/users', should return status code 200, res.body to be defined and res.body.length === 1", async () => {
     const res = await request(app)
 
         .get(BASE_URL)
@@ -44,7 +44,7 @@ test("Get -> 'BASE_URL/users', should return status code 200, res.body to be def
 })
 
 
-test("Post -> 'BASE_URL', should return status code 201, and res.body to be defined and res.body.firstName = user.firstName", async () => {
+test("Post -> 'BASE_URL', should return status code 201, and res.body to be defined and res.body.firstName === user.firstName", async () => {
     const res = await request(app)
 
         .post(BASE_URL)
@@ -57,7 +57,7 @@ test("Post -> 'BASE_URL', should return status code 201, and res.body to be defi
     expect(res.body.firstName).toBe(user.firstName)
 })
 
-test("Put -> 'BASE_URL/:id', should return status code 200, res.body to be defined  and res.body.firstName = 'Daniela'", async () => {
+test("Put -> 'BASE_URL/:id', should return status code 200, res.body to be defined  and res.body.firstName === 'Daniela'", async () => {
     const res = await request(app)
         .put(`${BASE_URL}/${userId}`)
         .send({

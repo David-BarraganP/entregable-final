@@ -29,7 +29,7 @@ beforeAll(async()=>{
 
 
 
-test("Post -> 'BASE_URL', should return status code 201, and res.body to be defined and res.body.name = category.name", async () => {
+test("Post -> 'BASE_URL', should return status code 201, and res.body to be defined and res.body.name === category.name", async () => {
     const res = await request(app)
 
         .post(BASE_URL)
