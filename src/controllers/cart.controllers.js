@@ -7,17 +7,8 @@ const getAll = catchError(async(req, res) => {
 
     const userId = req.user.id
     const results = await Cart.findAll({
-        where: {userId},
-        include:[
-            {
-                model:Product,
-                attributes:{exclude:["createdAt","updatedAt"]},
-                include:{
-                    model:Category,
-                    attributes:['name']
-                }
-            }
-        ]
+        
+       where: {userId}
     });
     return res.json(results);
 });
