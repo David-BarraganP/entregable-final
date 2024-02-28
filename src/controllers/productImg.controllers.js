@@ -3,6 +3,7 @@ const ProductImg = require('../models/ProductImg');
 const path = require('path')
 const fs = require('fs')
 
+
 const getAll = catchError(async(req, res) => {
 
     const result = await ProductImg.findAll()

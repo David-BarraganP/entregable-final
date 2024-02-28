@@ -124,7 +124,7 @@ test("Put -> 'BASE_URL/:id', should return status code 200, res.body to be defin
 })
 
 
-test("Delete -> 'URL_BASE/:id', should return status code 204", async () => {
+test("Delete -> 'BASE_URL/:id', should return status code 204", async () => {
     const res = await request(app)
       .delete(`${BASE_URL}/${productId}`)
       .set('Authorization', `Bearer ${TOKEN}`)

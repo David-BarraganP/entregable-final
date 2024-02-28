@@ -2,6 +2,7 @@ const catchError = require('../utils/catchError');
 const Cart = require('../models/Cart');
 const Product = require('../models/Product');
 const Category = require('../models/Category');
+const ProductImg = require('../models/ProductImg');
 
 const getAll = catchError(async (req, res) => {
     const userId = req.user.id
@@ -11,10 +12,12 @@ const getAll = catchError(async (req, res) => {
         {
           model: Product,
           attributes: { exclude: ["updatedAt", "createdAt"] },
-          include: {
+          include: [{
             model: Category,
             attributes: ['name']
-          }
+          },{
+            model: ProductImg
+          }]
         }
       ]
   
@@ -31,10 +34,13 @@ const getAll = catchError(async (req, res) => {
         {
           model: Product,
           attributes: { exclude: ["updatedAt", "createdAt"] },
-          include: {
+          include: [{
             model: Category,
             attributes: ['name']
-          }
+          },{
+            model: ProductImg
+
+          }]
         }
       ]
   
